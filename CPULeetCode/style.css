@@ -427,17 +427,21 @@ body{
     border-radius: 10px;
     height: 95%;
 }
+.right{
+    padding-top: 0px;
+}
 textarea{
-    width: 100%;
-    height: 45%;
-    background: #121212;
-    color: #fff;
-    padding: 10px 20px;
+    width: 90%;
+    height: 70%;
+    background: #000000;
+    color: #ffffff;
     border: 0;
     outline: 0;
     font-size: 18px;
     overflow: auto;
     font-family: 'JetBrains Mono';
+    margin-left: 5%;
+    padding: 10px 20px;
 }
 button{
     width: 200px;
@@ -495,7 +499,8 @@ ul li a:hover {
   background-color: #111111;
 }
 .samples{
-    padding-top: 5%;
+    padding-top: 0%;
+    border-radius: 20px;
 
 }
 .info{
@@ -551,8 +556,7 @@ img{
     color: #FAF616;
 
     border-color: rgb(83, 83, 83);
-    float:right;
-    margin-top: 1.5%;
+    margin: 0%;
 
 }
 .hint:hover{
@@ -595,9 +599,26 @@ code{
 #hint{
     display:inline-block;
     margin-top: 1.5%;
-    width: 60%;
+    width: 57.5%;
     margin-left: 20px;
-    margin-right: 10px;
+    margin-right: 0%;
     
     
+}
+.codingarea{
+    height: 67%;
+    margin: 0;
+    background-color:#121212;
+    border-radius: 20px;
+    padding-top: 0;
+    margin-bottom: 1.5%;
+}
+.top{
+    margin: 2%;
+    height: auto;
+    margin-bottom: 0.5%;
+    margin-left: 5%;
+}
+.runnablebuttons{
+    margin-left: 5%;
 }

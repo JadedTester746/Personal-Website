@@ -11,8 +11,6 @@
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
     <script type="text/javascript" src="CPUEmulator.js"></script>
 
-
-
 </head>
 <body>
 
@@ -71,14 +69,18 @@
 
         <div class="left" id = "left"></div> <!-- This will be filled with the problem description contained in the JSON-->
         <div class="right">
-            <span>
-                <label>Code</label>
-                <p id="hint"></p>
-                <button class = "hint" onclick='toggleHint()'>Hint</button>
-            </span>
-            <textarea id="code"></textarea>
-            <button id="testcases" onclick="runSamples()">Run Test Cases</button>
-            <button id="submit" onclick="runAllCases()">Submit</button>
+            <div class="codingarea">
+                <div class="top">
+                    <label class="codetitle">Code</label>
+                    <p id="hint"></p>
+                    <button class = "hint" onclick='toggleHint()'>Hint</button>
+                </div>
+                <textarea id="code"></textarea>
+                <div class="runnablebuttons">
+                    <button id="testcases" onclick="runSamples()">Run Test Cases</button>
+                    <button id="submit" onclick="runAllCases()">Submit</button>
+                </div>
+            </div>
             <div class="samples">
                 <ul class="problemlist">
                     <li class="problemelement"> <button class="testcase" onclick="setTestCase(0)">Case 1</button></li>
