@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Nth Fibonacci</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pliant:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <script type="text/javascript" src="CPUEmulator.js"></script>
+
+
+
+</head>
+<body>
+
+    <div class="top">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="homepage.html">Problems</a></li>
+                <li><a onclick="toggledescription()">Language Description</a></li>
+            </ul>
+     </div>
+    <div class="languagedescription" id="languagedescription">
+        <br>
+        <h1>The Hoff ISA</h1>
+        <p class="descriptiontext">The Hoff ISA is intended to run on the Hoff-16, a custom designed 16 bit CPU.</p>
+        <p class="descriptiontext">There are 16 instructions + 3 macros(commands that map to other instructions for easy use) you can run. All arithmetic and values are done with 16 bits.</p>
+        <p class="descriptiontext">There are also 16 registers with R0(constant 0), R1(constant 1), R13(stack pointer), R14(flags) and R15(program counter) being reserved for CPU operations leaving R2 - 12 open for your program.</p>
+        <p class="descriptiontext">Registers are meant to hold temporary data that can be manipulated by an instruction, and can interact with memory by loading or storing values to RAM. </p>
+        <p class="descriptiontext">You have 65536 addressable locations in RAM where each location contains 16 bits of information. The program is stored in RAM starting at memory address 0x0000 so it is recommended to store any variables around 0x2000, the stack begins at 0xDDDD and works downward</p>
+        <p class="descriptiontext">Each command will follow this structure:</p>
+        <p class="descriptiontext">COMMAND Par1 ... parN;</p>
+        <p class="descriptiontext">You can also mark loop points by writing</p>
+        <p class="descriptiontext">loop name;</p>
+        <p class="descriptiontext">loop points are places where you're program can jump to with the jump command, this is useful for loops, branching, and more. It does not matter if a loop point is after or before the jump.</p>
+        <h2>Here are the commands:</h2>
+        <p class="descriptiontext">LOAD destinationRegister ramAddr; --> loads whatever value is stored at the provided ram address into the provided register.</p>
+        <p class="descriptiontext">LI destinationRegister literal; --> loads the provided literal to the provided register.</p>
+        <p class="descriptiontext">STORE addressRegister valueRegister; --> stores the value in the register to ram at the address in the register.</p>
+        <p class="descriptiontext">ADD destinationRegister valueARegister valueBRegister; --> adds the values in register A and B and stores the result in the destination register.</p>
+        <p class="descriptiontext">SUB destinationRegister valueARegister valueBRegister; --> subtracts the values in register A and B and stores the result in the destination register.</p>
+        <p class="descriptiontext">AND destinationRegister valueARegister valueBRegister; --> binary ands the values in register A and B and stores the result in the destination register.</p>
+        <p class="descriptiontext">XOR destinationRegister valueARegister valueBRegister; --> binary xors the values in register A and B and stores the result in the destination register.</p>
+        <p class="descriptiontext">OR destinationRegister valueARegister valueBRegister; --> binary ors the values in register A and B and stores the result in the destination register.</p>
+        <p class="descriptiontext">PUSH valueRegister; --> pushes the value in the register to the stack;</p>
+        <p class="descriptiontext">POP destinationRegister; --> pops the value from the top of the stack and stores it in the register;</p>
+        <p class="descriptiontext">JMP type check loopPoint; jumps to the specified loop point if the condition is met. The condition is based on the flags register, each type checks if one of the flags is equal to the check parameter(0 or 1), so the flags are E(equal) N(negative) and U(unconditional jump), E will be 1 if the last comparison was equal, N will be 1 if the last comparison was negative, and if the type is U the jump will always be true. So if the stored value for the flag equals the check then the jump is true and code execution will move to the jump point.</p>
+        <p class="descriptiontext">CMP registerA registerB; --> sets the flag register based on registerA - registerB as described above.</p>
+        <p class="descriptiontext">SHL destinationRegister valueARegister valueBRegister; --> Binary shifts to the left the value in the register A by the value in register B and stores the result in the destination register;</p>
+        <p class="descriptiontext">SHR destinationRegister valueARegister valueBRegister; --> Binary shifts to the right the value in the register A by the value in register B and stores the result in the destination register;</p>
+        <p class="descriptiontext">MULT destinationRegister valueARegister valueBRegister; --> multiplies the values in register A and B and stores the result in the destination register.</p>
+        <p class="descriptiontext">DIV destinationRegister valueARegister valueBRegister; --> divides the values in register A and B and stores the result in the destination register.</p>
+        <br>
+        <h2>Macros:</h2>
+        <p class="descriptiontext">INC register; --> increments the value in the register(maps to ADD register R1 register)</p>
+        <p class="descriptiontext">DEC register; --> decrements the value in the register(maps to SUB register R1 register)</p>
+        <p class="descriptiontext">MOV destinationRegister otherRegister; --> sets the value of the destinationRegister to the value of the otherRegister(maps to ADD destinationRegister otherRegister R0;)</p>
+        <br>
+        <h2>Example lines:</h2>
+        <p class="descriptiontext">LOAD R3 65525; --> loads whatever is at ram address 65525 into register  3</p>
+        <p class="descriptiontext">JMP E 0 main; --> jumps to the loop point named main if the last comparision was not equal</p>
+        <p class="descriptiontext">ADD R2 R2 R3; --> stores into R2 R2 + R3; </p>
+        <br>
+        
+    </div>
+
+    <div class="container">
+
+        <div class="left" id = "left"></div> <!-- This will be filled with the problem description contained in the JSON-->
+        <div class="right">
+            <span>
+                <label>Code</label>
+                <p id="hint"></p>
+                <button class = "hint" onclick='toggleHint()'>Hint</button>
+            </span>
+            <textarea id="code"></textarea>
+            <button id="testcases" onclick="runSamples()">Run Test Cases</button>
+            <button id="submit" onclick="runAllCases()">Submit</button>
+            <div class="samples">
+                <ul class="problemlist">
+                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(0)">Case 1</button></li>
+                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(1)">Case 2</button></li>
+                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(2)">Case 3</button></li>
+                </ul>
+                <div class="info">
+                    <p id="status" class="testdata">Status: incorrect</p>
+                    <p id="input" class="testdata">Input: 2</p>
+                    <p id="recievedoutput" class="testdata">Recieved Output: 3</p>
+                    <p id="expectedoutput" class="testdata">Expected Ouptut: 4</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
