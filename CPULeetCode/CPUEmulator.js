@@ -236,8 +236,8 @@ function runAllCases(){
 }
 
 function setTestCase(index){ 
-    if(sampleOutput[index].correct){document.getElementById("status").innerHTML = "Status: Correct!";}
-    else{document.getElementById("status").innerHTML =  "Status: incorrect";}
+    if(sampleOutput[index].correct){document.getElementById("status").innerHTML = "Status: <h3 class='correct'>Correct!</h3>";}
+    else{document.getElementById("status").innerHTML =  "Status: <h3 class='incorrect'>Incorrect</h3>";}
 
     document.getElementById("input").innerHTML = "Input: " + sampleOutput[index].inputString;
     document.getElementById("recievedoutput").innerHTML = "Recieved Output: " + sampleOutput[index].recievedOutputString;

@@ -409,30 +409,37 @@ code{
     overflow: hidden;
 }
 body{
-    background: #000000;
+    background: black;
     color: #ffffff;
 }
 .container{
     width: 100%;
     height: 100vh;
-    padding: 20px;
+    padding: 10px;
     display: flex;
+    padding-top: 10px;
 }
 .left, .right{
     flex-basis: 50%;
     padding: 30px;
+
 }
 .left{
     background-color: #121212;
-    border-radius: 10px;
+    border-radius: 20px;
     height: 95%;
+    box-shadow: inset 0 0 0.5px 2px hsla(0, 0%, 100%, 0.15);
+    padding-top: 20px;
+
 }
 .right{
     padding-top: 0px;
+    padding-right: 0px;
+    padding-left:10px;
 }
 textarea{
     width: 90%;
-    height: 70%;
+    height: 60%;
     background: #000000;
     color: #ffffff;
     border: 0;
@@ -442,6 +449,9 @@ textarea{
     font-family: 'JetBrains Mono';
     margin-left: 5%;
     padding: 10px 20px;
+    border: hsl(0, 0%, 30%) 1px solid ;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 button{
     width: 200px;
@@ -486,6 +496,7 @@ ul li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .problem{
@@ -496,23 +507,28 @@ ul li a {
 
 }
 ul li a:hover {
-  background-color: #111111;
+  background-color: rgb(51, 51, 51);
 }
 .samples{
     padding-top: 0%;
     border-radius: 20px;
+    box-shadow: inset 0 0 0.5px 2px hsla(0, 0%, 100%, 0.15);
+    background-color: #121212;
 
 }
 .info{
     padding-top:10px;
-    background-color:#121212;
     padding-top: 2%;
     padding-bottom: 2%;
+    background-color:hsl(0, 0%, 15%);
+    border-radius: 20px;
+
+    margin: 5px;
 }
 
 .problemelement{
     padding-right: 10px;
-    padding-left: 10px;
+    padding-left: 0px;
     margin-top:2%;
 }
 .testcase{
@@ -535,12 +551,13 @@ ul li a:hover {
     border-radius:5px;
     margin:5px;
     padding: 5px;
-    background-color:#000000;
+    background-color:hsl(0, 0%, 20%);
 }
 .problemdescription{
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 25px;
+    color: hsl(0, 0%, 80%);
 }
 
 img{
@@ -606,12 +623,15 @@ code{
     
 }
 .codingarea{
-    height: 67%;
+    height: 64%;
     margin: 0;
     background-color:#121212;
     border-radius: 20px;
     padding-top: 0;
     margin-bottom: 1.5%;
+    box-shadow: inset 0 0 0.5px 2px hsla(0, 0%, 100%, 0.15);
+              
+
 }
 .top{
     margin: 2%;
@@ -621,4 +641,25 @@ code{
 }
 .runnablebuttons{
     margin-left: 5%;
+}
+.problemlist{
+    background: none;
+    margin-left: 5%;
+}
+.navbar{
+    margin-top: 0%;
+}
+.status{
+    margin-left:5px;
+    padding: 5px;
+    font-size:  25px;
+}
+.incorrect, .correct{
+    display: inline;
+}
+.incorrect{
+    color: red;
+}
+.correct{
+    color: green;
 }
