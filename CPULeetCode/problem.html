@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pliant:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script type="text/javascript" src="CPUEmulator.js"></script>
 
 </head>
@@ -83,15 +86,18 @@
             </div>
             <div class="samples">
                 <ul class="problemlist">
-                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(0)">Case 1</button></li>
-                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(1)">Case 2</button></li>
-                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(2)">Case 3</button></li>
+                    <li class="problemelement" id="first"> <button class="testcase" onclick="setTestCase(0)" id="1">Case 1</button></li>
+                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(1)" id="2">Case 2</button></li>
+                    <li class="problemelement"> <button class="testcase" onclick="setTestCase(2)" id="3">Case 3</button></li>
                 </ul>
                 <div class="info">
                     <h3 id="status" class="status">Status: incorrect</h3>
-                    <p id="input" class="testdata">Input: 2</p>
-                    <p id="recievedoutput" class="testdata">Recieved Output: 3</p>
-                    <p id="expectedoutput" class="testdata">Expected Ouptut: 4</p>
+                    <p class="dataname">Input:</p>
+                    <p id="input" class="testdata">2</p>
+                    <p class="dataname">Recieved Output:</p>
+                    <p id="recievedoutput" class="testdata">3</p>
+                    <p class="dataname">Expectetd Output:</p>
+                    <p id="expectedoutput" class="testdata">4</p>
                 </div>
             </div>
         </div>

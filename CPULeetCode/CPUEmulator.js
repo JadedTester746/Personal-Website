@@ -225,9 +225,12 @@ function runAllCases(){
         if(!(output).correct){
             document.getElementById("left").innerHTML = `
             <h1>Incorrect failed case ${i+1}</h1>
-            <p class='testdata'>input: ${output.inputString}</p> 
-            <p class='testdata'>recieved output: ${output.recievedOutputString}</p> 
-            <p class='testdata'>expected output: ${output.outputString}</p>
+            <p class="dataname">Input:</p>
+            <p class="testdata">${output.inputString}</p>
+            <p class="dataname">Recieved Output:</p>
+            <p class="testdata">${output.recievedOutputString}</p>
+            <p class="dataname">Expectetd Output:</p>
+            <p class="testdata">${output.outputString}</p>
             <button class='submitbutton' onclick='resetDescription()'>close</button>`;
             return;
         }
@@ -239,9 +242,12 @@ function setTestCase(index){
     if(sampleOutput[index].correct){document.getElementById("status").innerHTML = "Status: <h3 class='correct'>Correct!</h3>";}
     else{document.getElementById("status").innerHTML =  "Status: <h3 class='incorrect'>Incorrect</h3>";}
 
-    document.getElementById("input").innerHTML = "Input: " + sampleOutput[index].inputString;
-    document.getElementById("recievedoutput").innerHTML = "Recieved Output: " + sampleOutput[index].recievedOutputString;
-    document.getElementById("expectedoutput").innerHTML = "Expected Output: " + sampleOutput[index].outputString;
+    document.getElementById("input").innerHTML = "" + sampleOutput[index].inputString;
+    document.getElementById("recievedoutput").innerHTML = ""+ sampleOutput[index].recievedOutputString;
+    document.getElementById("expectedoutput").innerHTML = "" + sampleOutput[index].outputString;
+    document.getElementById(""+(currentTestCase+1)).classList.remove("active");
+    document.getElementById(""+(index+1)).classList.add("active");
+
     currentTestCase = index;
 }
 
