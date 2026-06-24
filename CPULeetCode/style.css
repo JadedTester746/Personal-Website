@@ -504,13 +504,6 @@ ul li a {
   cursor: pointer;
 }
 
-.problem{
-    float:none;
-}
-.problemlink{
-    text-align:left;
-
-}
 ul li a:hover {
   background-color: rgb(51, 51, 51);
 }
@@ -641,13 +634,7 @@ code{
 .runnablebuttons{
     margin-left: 5%;
 }
-.problemlist{
-    background-color: hsl(0, 0%, 15%);
-    width: 95%;
-    
-    margin: 10px;
-    border-radius: 20px;
-}
+
 .testcase{
     background-color: hsl(0, 0%, 25%);
     border-color:#444444;
@@ -728,4 +715,86 @@ code{
     font-weight:500;
     font-style: normal;
     font-variation-settings:"wdth" 100;
+}
+
+.problemlist{
+    background-color: hsl(0, 0%, 10%);
+    width: 95%;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.problem{
+    border-radius: 20px;
+    float:none;
+    margin-top: 10px;
+    height: 50px;
+    background-color: hsl(0, 0%, 15%);
+}
+.problemlink{
+    text-align:left;
+    font-weight: 700;
+}
+.medium, .easy, .hard{
+    display: inline;
+    margin-left: 80%;
+}
+.medium{
+    border: solid 2px orange;
+    border-radius: 10px;
+    color: orange;
+    font-weight: 550;
+    padding: 5px;
+
+
+}
+.easy{
+    border: solid 2px green;
+    border-radius: 10px;
+    color: green;
+    padding: 5px;
+}
+.hard{
+    border: solid 2px red;
+    border-radius: 10px;
+    color: red;
+    padding: 5px;
+}
+
+.problems{
+    background-color: hsl(0, 0%, 10%);
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.challengelabel{
+    padding-left:16px;
+}
+.cpudescription{
+    position: absolute;
+    width: 23%;
+    height: 95%;
+    background-color: hsl(0, 0%, 10%);
+    border-radius: 20px;
+    margin: 10px;
+}
+.cpulabel{
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+.cputextcontainer{
+    height: 87%;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 20px;
+    margin: 20px;
+    margin-bottom: 50px;
+    overflow: auto;
+}
+.cputext{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 100;
 }

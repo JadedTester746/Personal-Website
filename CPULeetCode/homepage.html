@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <label>Coding Problems</label>
-        <div class="problems">
-            <ul class="problemlist">
-                <li class="problem"> <a href="problem.html?problem=fibonacci" class="problemlink">Nth Fibonacci</a> </li>
-                <li class="problem"> <a href="problem.html?problem=2powers" class="problemlink">Powers of 2</a> </li>
-            </ul>
+    <div class="cpudescription">
+        <label class="cpulabel">The Hoff-16</label>
+        <div class="cputextcontainer">
+            <p class="cputext"> Making your own CPU and ISA is not an easy task. It requires a ton of logic, design tradeoffs, and knowledge of low level computer architecture. But I feel that after putting in the work you leave with a stronger sense of how computers and code works at the lowest levels of abstraction which makes you a stronger programmer.</p>
+            <p class="cputext"> The CPU I designed, the Hoff-16 is a 16 bit cpu meaning that all arithmetic and vararibles stored are 16 bits. This is also called the word size.  There are 16 supported instructions described in the ISA, 16 registers with 5 reserved for CPU operations, and 65536 addressable RAM locations each storing a 16 bit word</p>
+            <p class="cputext"> The code editors in the following problems are only emulating the ISA, the actual CPU can be downloaded and ran on logisim along with a link to assemble your code into binary</p>
+            <p class="cputext"> Solving a couple of these problems will give you an idea of how assembly code works and what your computer code is actually doing on the CPU</p>
+            <p class="cputext"> Essentially all modern programming languages are compiled or interpred to assembly and machine code, much like the instructions you are going to write.</p>
         </div>
+    </div>
+    <div class="problems">
+        <label class="challengelabel">Challenges</label>
+        <ul class="problemlist">
+            <li class="problem"> <a href="problem.html?problem=fibonacci" class="problemlink">Nth Fibonacci <span class="medium">Medium</span></a> </li>
+            <li class="problem"> <a href="problem.html?problem=2powers" class="problemlink">Powers of 2 <span class="medium">Medium</span></a> </li>
+        </ul>
     </div>
 </body>
 </html>
