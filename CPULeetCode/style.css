@@ -732,12 +732,17 @@ code{
     background-color: hsl(0, 0%, 15%);
 }
 .problemlink{
+    display: flex;
+    align-items: center;
+
     text-align:left;
     font-weight: 700;
+    width: 100%;
+    height: 100%;
+
 }
 .medium, .easy, .hard{
-    display: inline;
-    margin-left: 80%;
+    margin-left: auto;
 }
 .medium{
     border: solid 2px orange;
