@@ -1,3 +1,4 @@
+
 body{
     background-color:black;
 }
@@ -6,11 +7,55 @@ body{
     height: 90vh;
     width: 95%;
     border: 20px solid hsl(0, 0%, 20%);
-    padding: 10px;
+    background-color: black;
+    display:flex;
 }
 
 .searchpanel{
     height: 95%;
     width: 33%;
-    border: 2px solid green;
+    border: 2px solid rgb(0, 255, 0);
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.map{
+    width: 67%;
+    margin: 10px;
+}
+
+.title{
+    border: 2px solid rgb(0, 255, 0);
+    height: 7%;
+    padding: 5px;
+    margin: 0px auto;
+    
+}
+
+.titletext{
+    font-size: 50px;
+    color: rgb(0, 255, 0);
+    margin: 0px;
+    text-align:center;
+}
+
+.projectcontainer{
+
+}
+
+.route{
+    border: 2px solid rgb(0, 255, 0);
+    height: 7%;
+    padding: 5px;
+    margin-top: auto;
+    margin-bottom: 10px;
+    width: 95%;
+    
+}
+
+.routetext{
+    font-size: 50px;
+    color: rgb(0, 255, 0);
+    margin: 0px;
+    justify-content: left;
 }
