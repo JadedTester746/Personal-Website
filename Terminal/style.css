@@ -1,0 +1,16 @@
+body{
+    background-color:black;
+}
+
+.container{
+    height: 90vh;
+    width: 95%;
+    border: 20px solid hsl(0, 0%, 20%);
+    padding: 10px;
+}
+
+.searchpanel{
+    height: 95%;
+    width: 33%;
+    border: 2px solid green;
+}
