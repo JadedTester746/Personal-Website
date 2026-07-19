@@ -1,7 +1,7 @@
 function drawLineBetweenDivs(element1, element2){
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
-    document.getElementById("linesvg").innerHTML += `<line id=${"line" + element1.id + element2.id}class="line" x1="${rect1.left}" y1="${rect1.top - rect1.height/2}" x2="${rect2.left}" y2="${rect2.top - rect2.height/2}"/>`
+    document.getElementById("linesvg").innerHTML += `<line id=${"line" + element1.id.toString() + element2.id.toString()} class="line" x1="${rect1.left}" y1="${rect1.top - rect1.height/2}" x2="${rect2.left}" y2="${rect2.top - rect2.height/2}"/>`
 }
 
 

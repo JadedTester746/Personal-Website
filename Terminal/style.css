@@ -92,3 +92,25 @@ body{
     stroke-width: 3;
     stroke: rgb(0, 255, 0);
 }
+
+.searchbartitle{
+    color: rgb(0, 255, 0);
+    text-align: center;
+    border: 2px solid rgb(0, 255, 0);
+    margin: 3px;
+}
+
+.searchbarcontainer{
+    padding: 5px;
+    margin-right: 6px;
+
+
+}
+
+.searchbar{
+    resize: none;
+    width: 100%;
+    border: none;
+    padding: 3px;
+    
+}
