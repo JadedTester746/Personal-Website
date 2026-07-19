@@ -11,7 +11,16 @@
     <div class="container">
         <div class="map">
             <div class="title"><h1 class="titletext">World View</h1></div>
-            <div class="projectcontainer"></div>
+            <div class="projectcontainer">
+                <div class="linecontainer" id="linecontainer">
+                    <svg class="linesvg" id="linesvg" width="100%" height="100%"></svg>
+                </div>
+                <div class="projects">
+                    <div class="project" id="project1"></div>
+                    <div class="project" id="project2"></div>
+
+                </div>
+            </div>
             <div class="route"><h1 class="routetext">Route: </h1></div>
         </div>
 
@@ -20,7 +29,7 @@
             <ul class="searchresults">
 
             </ul>
-            <button class="setroute">Chart Route</button>
+            <button class="setroute" onclick='drawLineBetweenDivs(document.getElementById("project1"), document.getElementById("project2"));'>Chart Route</button>
             <button class="quicktravel">Quick Travel</button>
         </div>
     </div>
