@@ -6,6 +6,8 @@
     <title>Terminal</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="terminal.js"></script>
+    <script src="https://kit.fontawesome.com/43314f8f7d.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div class="container">
@@ -21,13 +23,15 @@
 
                 </div>
             </div>
-            <div class="route"><h1 class="routetext">Route: </h1></div>
+            <div class="route"><h1 class="routetext" id="routetext">Route: </h1></div>
         </div>
 
         <div class="searchpanel">
             <h1 class="searchbartitle">Search for projects</h1>
             <div class = "searchbarcontainer">
                 <textarea class="searchbar"></textarea>
+                <i class="fa-solid fa-magnifying-glass" id="searchicon"></i>
+                
             </div>
             <ul class="searchresults">
 

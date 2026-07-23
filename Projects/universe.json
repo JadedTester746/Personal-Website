@@ -1,0 +1,8 @@
+{
+    "name" : "Universe",
+    "href" : "index.html",
+    "description" : "The universe, container of all things",
+    "isDomain" : true,
+    "connections" : []
+
+}
