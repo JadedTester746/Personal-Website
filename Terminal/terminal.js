@@ -16,11 +16,9 @@ async function loadProjects(){
     const indexFile = await fetch("../Projects/index.json");
     const projectNames = JSON.parse(await indexFile.text());
 
-    console.log(projectNames.projects);
 
     for(let i = 0; i < projectNames.projects.length; i++){
         const curr = JSON.parse(await (await fetch(projectNames.projects[i])).text());
-        console.log(curr)
         projects.set(curr, new Set());
     }
 }
