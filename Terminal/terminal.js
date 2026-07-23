@@ -4,7 +4,6 @@ function drawLineBetweenDivs(element1, element2){
     document.getElementById("linesvg").innerHTML += `<line id=${"line" + element1.id.toString() + element2.id.toString()} class="line" x1="${rect1.left}" y1="${rect1.top - rect1.height/2}" x2="${rect2.left}" y2="${rect2.top - rect2.height/2}"/>`
 }
 
-
 function updateVisualMap(map){
     for(entry in map.entries()){
         for(connection in map.value){
@@ -15,7 +14,6 @@ function updateVisualMap(map){
 async function loadProjects(){
     const indexFile = await fetch("../Projects/index.json");
     const projectNames = JSON.parse(await indexFile.text());
-
 
     for(let i = 0; i < projectNames.projects.length; i++){
         const curr = JSON.parse(await (await fetch(projectNames.projects[i])).text());
@@ -48,7 +46,6 @@ function calculateRouteToProject(target){
     route.push(start);
     route.reverse();
     return route;
-    
 }
 
 function highlightRoute(route){
