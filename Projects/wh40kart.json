@@ -1,0 +1,8 @@
+{
+    "name" : "wh40kart",
+    "href" : "index.html",
+    "description" : "I love warhammer, and always wanted to give painting it a try",
+    "isDomain" : true,
+    "connections" : ["Art"]
+
+}

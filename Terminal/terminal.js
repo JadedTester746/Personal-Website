@@ -136,6 +136,45 @@ function levenshteindistance(a, b){
     return dp[m][n];
 }
 
+function generateVisualMap(){
+    let out = [];
+    let begin = {};
+    begin.node = start;
+    begin.layer = 0;
+    begin.min = 0;
+    begin.max = 360;
+
+    out.push(begin);
+
+    let queue = [];
+    queue.push(begin);
+
+    while(queue.length > 0){
+        let node = queue.shift();
+        let connections = projects.get(node.node);
+        let n = connections.size;
+        let angleDelta = (node.max - node.min)/n;
+        let angle = node.min; 
+        console.log(connections);
+        for(let connection of connections){
+            let temp = {};
+            temp.node = connection;
+            temp.min = angle;
+            temp.max = angle + angleDelta;
+            temp.layer = node.layer + 1;
+            out.push(temp);
+            queue.push(temp);
+            angle += angleDelta;
+        }
+    }
+
+    return out;
+}
+
+function renderVisualMap(map){
+
+}
+
 /*
     Project JSON
     - Name
@@ -150,6 +189,7 @@ let nameToProject = new Map();
 let start = null;
 loadProjects().then(function(map){
     console.log(projects);
+    console.log(generateVisualMap());
 }, function(){alert("Failed to load projects, website will not display as intended!")});
 
 

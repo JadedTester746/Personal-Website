@@ -1,3 +1,3 @@
 {
-    "projects" : ["../Projects/universe.json", "../Projects/games.json"]
+    "projects" : ["../Projects/universe.json", "../Projects/games.json", "../Projects/art.json", "../Projects/farm.json", "../Projects/wh40kart.json"]
 }
