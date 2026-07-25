@@ -1,7 +1,10 @@
 function drawLineBetweenDivs(element1, element2){
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
-    document.getElementById("linesvg").innerHTML += `<line id=${"line" + element1.id.toString() + element2.id.toString()} class="line" x1="${rect1.left}" y1="${rect1.top - rect1.height/2}" x2="${rect2.left}" y2="${rect2.top - rect2.height/2}"/>`
+    const svgRect = document.getElementById("linesvg").getBoundingClientRect();
+
+    document.getElementById("linesvg").innerHTML += `<line id=${"line" + element1.id.toString() + element2.id.toString()} class="line" x1="${rect1.left - svgRect.left + rect1.width / 2}" y1="${rect1.top - svgRect.top + rect1.height/2}" x2="${rect2.left - svgRect.left + rect2.width / 2}" y2="${rect2.top - svgRect.top + rect2.height/2}"/>`
+
 }
 
 function updateVisualMap(map){
@@ -189,6 +192,13 @@ function renderVisualMap(map){
         newDiv.style.top = `${50 - deltaY}%`;
         newDiv.style.left = `${50 + deltaX}%`;
         document.getElementById("projects").appendChild(newDiv);
+    }
+    for(let node of map){
+        let connections = node.node.connections;
+        for(let connection of connections){
+            console.log(connection);
+            drawLineBetweenDivs(document.getElementById(node.node.name), document.getElementById(connection)); 
+        }
     }
 }
 
