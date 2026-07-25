@@ -171,8 +171,25 @@ function generateVisualMap(){
     return out;
 }
 
-function renderVisualMap(map){
+function randomBetween(min, max){
+    return min + Math.random() * (max - min);
+}
 
+function renderVisualMap(map){
+    for(let node of map){
+        console.log(node);
+        let angle = randomBetween(node.min, node.max);
+        let radius = layerRadiusDelta * node.layer;
+        let deltaX = radius * Math.cos(angle * degreesToRadians);
+        let deltaY = radius * Math.sin(angle * degreesToRadians);
+
+        let newDiv = document.createElement('div');
+        newDiv.className = "project";
+        newDiv.id = node.node.name;
+        newDiv.style.top = `${50 - deltaY}%`;
+        newDiv.style.left = `${50 + deltaX}%`;
+        document.getElementById("projects").appendChild(newDiv);
+    }
 }
 
 /*
@@ -184,12 +201,15 @@ function renderVisualMap(map){
     - Connections array
 */
 
+let layerRadiusDelta = 10;
+let degreesToRadians = Math.PI / 180;
+
 let projects = new Map();
 let nameToProject = new Map();
 let start = null;
 loadProjects().then(function(map){
     console.log(projects);
-    console.log(generateVisualMap());
+    renderVisualMap(generateVisualMap());
 }, function(){alert("Failed to load projects, website will not display as intended!")});
 
 
