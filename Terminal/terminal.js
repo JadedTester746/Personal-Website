@@ -15,9 +15,22 @@ async function loadProjects(){
     const indexFile = await fetch("../Projects/index.json");
     const projectNames = JSON.parse(await indexFile.text());
 
+
     for(let i = 0; i < projectNames.projects.length; i++){
         const curr = JSON.parse(await (await fetch(projectNames.projects[i])).text());
         projects.set(curr, new Set());
+        nameToProject.set(curr.name, curr);
+    }
+    generateGraph(projects);
+    start = nameToProject.get("Universe");
+
+}
+
+function generateGraph(map){
+    for(let project of nameToProject.values()){
+        for(let i = 0; i < project.connections.length; i++){
+            map.get(nameToProject.get(project.connections[i])).add(project);
+        }
     }
 }
 
@@ -25,15 +38,29 @@ function calculateRouteToProject(target){
     let queue = [];
 
     let seen = new Set();
-    queue.push({node: start, prev: null});
+    let begin = {};
+
+    begin.node = start;
+    begin.prev = null;
+
+    queue.push(begin);
+
     let out = null;
     while(queue.length> 0){
         let node = queue.shift();
         seen.add(node.node);
-        if(node.node == target){out = node;}
+        if(node.node === target){
+            out = node; 
+            break;
+        }
         else{
-            for(let n in map.get(node.node)){
-                if(!seen.contains(n)){queue.push({node: n, prev:node});}
+            for(let n of projects.get(node.node)){
+                if(!seen.has(n)){
+                    let temp = {};
+                    temp.node = n;
+                    temp.prev = node;
+                    queue.push(temp);
+                }
             }
         }
     }
@@ -61,7 +88,6 @@ function routeToString(route){
 }
 
 function setRouteText(route){
-    
     document.getElementById("routetext").innerHTML = `Route: ${routeToString(route)}`;
 }
 
@@ -120,7 +146,11 @@ function levenshteindistance(a, b){
 */
 
 let projects = new Map();
-const start = null;
-loadProjects().then(function(map){alert(projects.toString());}, function(){alert("Failed to load projects, website will not display as intended!")});
+let nameToProject = new Map();
+let start = null;
+loadProjects().then(function(map){
+    console.log(projects);
+}, function(){alert("Failed to load projects, website will not display as intended!")});
+
 
 
