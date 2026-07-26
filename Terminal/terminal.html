@@ -14,7 +14,7 @@
         <div class="map">
             <div class="title"><h1 class="titletext">World View</h1></div>
             <div class="projectcontainer" id="projects">
-                    <svg class="linesvg" id="linesvg" width="100%" height="100%"></svg>
+                <svg class="linesvg" id="linesvg" width="100%" height="100%"></svg>
             </div>
             <div class="route"><h1 class="routetext" id="routetext">Route: </h1></div>
         </div>
@@ -22,15 +22,23 @@
         <div class="searchpanel">
             <h1 class="searchbartitle">Search for projects</h1>
             <div class = "searchbarcontainer">
-                <textarea class="searchbar"></textarea>
+                <textarea class="searchbar" id="searchbar"></textarea>
                 <i class="fa-solid fa-magnifying-glass" id="searchicon"></i>
                 
             </div>
             <ul class="searchresults">
+                <li class = "result" id="rank1"></li>
+                <li class = "result" id="rank2"></li>
+                <li class = "result" id="rank3"></li>
 
             </ul>
-            <button class="setroute" onclick='setRouteText(calculateRouteToProject(nameToProject.get("Games")));'>Chart Route</button>
-            <button class="quicktravel" onclick='drawLineBetweenDivs(document.getElementById("project1"), document.getElementById("project2"));'>Quick Travel</button>
+            <div class="tooltipcontainer">
+
+            </div>
+            <div class = "buttoncontainer">
+                <button class="setroute" onclick='setRouteText(calculateRouteToProject(nameToProject.get("Games")));'>Chart Route</button>
+                <button class="quicktravel" onclick='drawLineBetweenDivs(document.getElementById("project1"), document.getElementById("project2"));'>Quick Travel</button>
+            </div>
         </div>
     </div>
 </body>

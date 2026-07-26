@@ -101,15 +101,22 @@ function projectQuickTravel(project){
 function rankSearchResults(context){
     let out = new Array();
     let i = 0;
-    for(let entry in projects.entries){
-        out[i] = `{object:${entry.key}, distance:${levenshteindistance(context, entry.key.name)}}`;
+    for(const [key, value] of projects.entries()){
+        let addition = {};
+        addition.object = key;
+        addition.distance = levenshteindistance(context, key.name);
+        out[i] = addition;
+        i++;
     }
     out.sort(function(a, b){return a.distance-b.distance;});
     return out;
 }
 
 function displaySearchResults(results){
-    //Set top results
+    document.getElementById("rank1").innerHTML = `<p class="searchresulttext">${results[0].object.name}</p>`;
+    document.getElementById("rank2").innerHTML = `<p class="searchresulttext">${results[1].object.name}</p>`;
+    document.getElementById("rank3").innerHTML = `<p class="searchresulttext">${results[2].object.name}</p>`;
+
 }
 
 function levenshteindistance(a, b){
@@ -222,5 +229,7 @@ loadProjects().then(function(map){
     renderVisualMap(generateVisualMap());
 }, function(){alert("Failed to load projects, website will not display as intended!")});
 
-
+setInterval(function(){
+    displaySearchResults(rankSearchResults(document.getElementById("searchbar").value));
+}, 500);
 

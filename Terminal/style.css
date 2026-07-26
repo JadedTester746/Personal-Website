@@ -15,6 +15,7 @@ body{
     width: 33%;
     border: 2px solid rgb(0, 255, 0);
     margin: 10px;
+    padding: 5px;
 }
 
 .map{
@@ -141,4 +142,59 @@ body{
     width: 20px;
     height: 20px;
     float: right;
+}
+
+.buttoncontainer{
+
+}
+
+.setroute, .quicktravel{
+    border: 2px solid rgb(0, 255, 0);
+    background: none;
+    color: rgb(0, 255, 0);
+    width: 150px;
+    height: 33px;
+    font-size: 20px;
+    margin-top: 10%;
+}
+
+.setroute:hover, .quicktravel:hover{
+    background-color: rgb(0, 50, 0);
+}
+
+.setroute{
+
+}
+
+.quicktravel{
+
+}
+
+.tooltipcontainer{
+    width: 100%;
+    height: 25%;
+    border: 2px solid rgb(0, 255, 0);
+}
+
+.result{
+    width: 100%;
+    height: 33%;
+    color: rgb(0, 255, 0);
+}
+
+.result:hover{
+    background-color: rgb(0, 50, 0);
+}
+
+.searchresults{
+    width: 100%;
+    height: 33%;
+    list-style-type: none;
+    padding: 0px;
+
+}
+.searchresulttext{
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
 }
