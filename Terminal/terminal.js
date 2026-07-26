@@ -79,6 +79,14 @@ function calculateRouteToProject(target){
 }
 
 function highlightRoute(route){
+    for(let line of document.getElementsByClassName("highlightedline")){
+        console.log(line);
+        line.classList.remove("highlightedLine");
+    }
+    for(let i = 0; i < route.length - 1; i++){
+        console.log("line" + route[i].name + route[i+1].name);
+        document.getElementById("line" + route[i+1].name + route[i].name).classList.add( "highlightedline");
+    }
     //set class of the svg for each edge to highlighted
 }
 
@@ -92,6 +100,7 @@ function routeToString(route){
 
 function setRouteText(route){
     document.getElementById("routetext").innerHTML = `Route: ${routeToString(route)}`;
+    highlightRoute(route);
 }
 
 function projectQuickTravel(project){
