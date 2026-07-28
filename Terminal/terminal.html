@@ -27,17 +27,17 @@
                 
             </div>
             <ul class="searchresults">
-                <li class = "result" id="rank1"></li>
-                <li class = "result" id="rank2"></li>
-                <li class = "result" id="rank3"></li>
+                <li class = "result" id="rank1" onclick="selectResults(0);"></li>
+                <li class = "result" id="rank2" onclick="selectResults(1);"></li>
+                <li class = "result" id="rank3" onclick="selectResults(2);"></li>
 
             </ul>
             <div class="tooltipcontainer">
                 <h2 class="tooltiplabel" id="tooltiplanel">Test</h2>
             </div>
             <div class = "buttoncontainer">
-                <button class="setroute" onclick='setRouteText(calculateRouteToProject(nameToProject.get("Games")));'>Chart Route</button>
-                <button class="quicktravel" onclick='drawLineBetweenDivs(document.getElementById("project1"), document.getElementById("project2"));'>Quick Travel</button>
+                <button class="setroute" onclick='setRouteText(calculateRouteToProject(selected));'>Chart Route</button>
+                <button class="quicktravel" onclick='projectQuickTravel(selected);'>Quick Travel</button>
             </div>
         </div>
     </div>

@@ -79,10 +79,8 @@ function calculateRouteToProject(target){
 }
 
 function highlightRoute(route){
-    for(let line of document.getElementsByClassName("highlightedline")){
-        console.log(line);
-        line.classList.remove("highlightedLine");
-    }
+    document.querySelectorAll(".highlightedline").forEach(line => {line.classList.remove("highlightedline");});
+
     for(let i = 0; i < route.length - 1; i++){
         console.log("line" + route[i].name + route[i+1].name);
         document.getElementById("line" + route[i+1].name + route[i].name).classList.add( "highlightedline");
@@ -126,6 +124,9 @@ function displaySearchResults(results){
     document.getElementById("rank2").innerHTML = `<p class="searchresulttext">${results[1].object.name}</p>`;
     document.getElementById("rank3").innerHTML = `<p class="searchresulttext">${results[2].object.name}</p>`;
 
+    topResults[0] = results[0];
+    topResults[1] = results[1];
+    topResults[2] = results[2];
 }
 
 function levenshteindistance(a, b){
@@ -218,6 +219,16 @@ function renderVisualMap(map){
     }
 }
 
+function selectResults(index){
+    selected = topResults[index].object;
+    setTooltip(selected);
+    console.log(selected);
+}
+
+function setTooltip(object){
+
+}
+
 /*
     Project JSON
     - Name
@@ -233,6 +244,10 @@ let degreesToRadians = Math.PI / 180;
 let projects = new Map();
 let nameToProject = new Map();
 let start = null;
+let selected = null;
+
+let topResults = [];
+
 loadProjects().then(function(map){
     console.log(projects);
     renderVisualMap(generateVisualMap());
