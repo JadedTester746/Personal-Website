@@ -247,11 +247,12 @@ let start = null;
 let selected = null;
 
 let topResults = [];
-
-loadProjects().then(function(map){
-    console.log(projects);
-    renderVisualMap(generateVisualMap());
-}, function(){alert("Failed to load projects, website will not display as intended!")});
+document.addEventListener('DOMContentLoaded', () => {
+    loadProjects().then(function(map){
+        console.log(projects);
+        renderVisualMap(generateVisualMap());
+    }, function(){alert("Failed to load projects, website will not display as intended!")});
+});
 
 setInterval(function(){
     displaySearchResults(rankSearchResults(document.getElementById("searchbar").value));
