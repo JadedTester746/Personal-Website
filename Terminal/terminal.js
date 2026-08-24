@@ -206,6 +206,7 @@ function renderVisualMap(map){
         let newDiv = document.createElement('div');
         newDiv.className = "project";
         newDiv.id = node.node.name;
+        newDiv.innerHTML = node.node.name;
         newDiv.style.top = `${50 - deltaY}%`;
         newDiv.style.left = `${50 + deltaX}%`;
         document.getElementById("projects").appendChild(newDiv);
@@ -223,6 +224,17 @@ function selectResults(index){
     selected = topResults[index].object;
     setTooltip(selected);
     console.log(selected);
+    let result = document.getElementById(`rank${index+1}`).classList
+    result.remove("result");
+    result.add("selectedResult");
+    if(selectedIndex != -1){
+        document.getElementById(`rank${selectedIndex+1}`).classList.remove("selectedResult");
+        document.getElementById(`rank${selectedIndex+1}`).classList.add("result");
+    }
+    selectedIndex = index;
+
+    document.getElementById("tooltiplabel").innerHTML = selected.name;
+    document.getElementById("tooltipdescription").innerHTML = selected.description;
 }
 
 function setTooltip(object){
@@ -245,6 +257,8 @@ let projects = new Map();
 let nameToProject = new Map();
 let start = null;
 let selected = null;
+
+let selectedIndex = -1;
 
 let topResults = [];
 document.addEventListener('DOMContentLoaded', () => {
