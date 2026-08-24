@@ -1,6 +1,6 @@
 
 body{
-    background-color:black;
+    background-color:hsl(0, 0%, 50%);
 }
 
 .container{
@@ -9,6 +9,9 @@ body{
     border: 20px solid hsl(0, 0%, 20%);
     background-color: black;
     display:flex;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .searchpanel{
@@ -184,6 +187,7 @@ body{
     width: 100%;
     height: 25%;
     border: 2px solid rgb(0, 255, 0);
+    margin-top: 10%;
 }
 
 .result{
@@ -230,4 +234,5 @@ body{
 
 .tooltipdescription{
     color: rgb(0, 255, 0);
+    padding: 12px;
 }

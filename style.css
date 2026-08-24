@@ -3,3 +3,40 @@ div {
     height:100px;
     background-color: yellow;
 }
+
+#aboutme{
+  cursor: pointer;
+
+}
+
+#terminal{
+    background-color:hsl(0, 0%, 20%);
+    width: 30vw;
+    height: 45vh;
+}
+
+#captainslog{
+  cursor: pointer;
+
+}
+
+#controls{
+  cursor: pointer;
+
+}
+
+.terminallink{
+    position: absolute;
+
+    top: 20vh;
+    left: 60vw;
+}
+
+.aboutmepage{
+    position: absolute;
+    
+    background-color: purple;
+
+    left: 50%;
+    top: 50%;
+}
