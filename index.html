@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="aboutme" onclick="document.getElementById('aboutmepage').style.visibility = 'hidden';"></div>
+    <div id="aboutme" onclick="document.getElementById('aboutmepage').style.visibility = 'visible';"></div>
     <a href="Terminal/terminal.html" class="terminallink"><div id="terminal"></div></a>
-    <div id="captainslog" onclick="document.getElementById('blogpage').style.visibility = 'hidden';" ></div>
+    <div id="captainslog" onclick="document.getElementById('blogpage').style.visibility = 'visible';" ></div>
     <div id="controls"></div>
-    <div class="aboutmepage" id="aboutmepage"></div>
-    <div class="blogpage" id="blogpage"></div>
+    <div class = "pagecontainer">
+        <div class="aboutmepage" id="aboutmepage">
+            <h1> I'm Daniel Hoffmaster</h1>
+            <button onclick="document.getElementById('aboutmepage').style.visibility = 'hidden';" class="aboutmepageclose">X</button>
+        </div>
+        <div class="blogpage" id="blogpage">
+            <h1> Blog</h1>
+            <button onclick="document.getElementById('blogpage').style.visibility = 'hidden';" class="blogclose">X</button>\
+        </div>
+    </div>
 </body>
 </html>
