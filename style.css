@@ -58,3 +58,21 @@ div {
   width: 50%;
   height: 60%;
 }
+
+.bloglink{
+  font-size: 20px;
+  color: white;
+}
+
+.bloglink:hover{
+    text-decoration: underline;
+}
+
+.blogclose{
+  width: 5%;
+  height: 5%;
+  position: absolute;
+  left: 95%;
+  top: 0%;
+ 
+}

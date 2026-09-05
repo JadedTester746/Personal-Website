@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <div id="aboutme" onclick="document.getElementById('aboutmepage').style.visibility = 'visible';"></div>
     <a href="Terminal/terminal.html" class="terminallink"><div id="terminal"></div></a>
-    <div id="captainslog" onclick="document.getElementById('blogpage').style.visibility = 'visible';" ></div>
+    <div id="captainslog" onclick="document.getElementById('blogpage').style.visibility = 'visible'; loadTableOfContents();" ></div>
     <div id="controls"></div>
     <div class = "pagecontainer">
         <div class="aboutmepage" id="aboutmepage">

@@ -11,12 +11,26 @@ async function loadBlog(){
     }
 }
 
-function loadPage(index){
+function loadPage(newIndex){
+    index = newIndex;
+    document.getElementById('blogpage').innerHTML = blog[newIndex].content;
+    document.getElementById('blogpage').innerHTML += `<button onclick="document.getElementById('blogpage').style.visibility = 'hidden';" class="blogclose">X</button>`;
+    if(newIndex > 0){
+        document.getElementById('blogpage').innerHTML += `<button onclick="decrementIndex();" class="pagechange">←</button>`;
+    }
+    if(newIndex < blog.length -1){
+        document.getElementById('blogpage').innerHTML += `<button onclick="incrementIndex();" class="pagechange">→</button>`;
+    }
+
 
 }
 
 function loadTableOfContents(){
-
+    document.getElementById('blogpage').innerHTML = `<h2 class="blogheading">Table of Contents</h2>`;
+    for(let i = 0; i < blog.length; i++){
+        document.getElementById('blogpage').innerHTML += `<p class='bloglink' onclick='loadPage(${i});'>Page ${i+1} ${blog[i].title}</p>`
+    }
+    document.getElementById('blogpage').innerHTML += `<button onclick="document.getElementById('blogpage').style.visibility = 'hidden';" class="blogclose">X</button>`;
 }
 
 let blog = null;
@@ -24,15 +38,13 @@ let index = -1;
 
 function incrementIndex(){
     if(index + 1 < blog.length){
-        index++;
-        loadPage(index);
+        loadPage(index + 1);
     }
 }
 
 function decrementIndex(){
     if(index -1 >= 0){
-        index--;
-        loadPage(index);
+        loadPage(index - 1);
     }
 }
 
